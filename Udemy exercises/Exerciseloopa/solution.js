@@ -8,7 +8,7 @@ function printReverse(arr) {
 
 printReverse([3, 6, 2, 5]);
 
-//*** isUniform() ***
+//*** isUniform() if they are identical elements in a array***
 
 function isUniform(arr) {
   var first = arr[0];
@@ -59,7 +59,7 @@ function max(arr) {
 // };
 // someObjects.friends[0];
 
-//Exercise
+//Exercise array of objects
 var movies = [
   {
     title: "Frozen",
