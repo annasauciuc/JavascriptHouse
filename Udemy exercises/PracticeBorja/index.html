@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+</head>
+
+
+
+<body>
+
+    <div id="div" style="width:300px;height:300px; border:1px solid black"></div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script>
+
+        //Sending a petition with jax and appending that to a element in index.html 
+        $(document).ready(function () {
+            $('#div').on('mouseover', function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                console.log('hola1');
+                $.ajax({
+                    url: "img.html",
+                    dataType: "html",
+                }).done(function (data) {
+                    console.log('hola2', data);
+                    $("#div").append(data);
+                }).fail(function () {
+                    console.log('ERROOOOOOR');
+                });
+            });
+            $('#div').on('mouseout', function (event) {
+                console.log('funct2');
+
+                $('#div').html(" ");
+                event.preventDefault();
+                event.stopPropagation();
+            });
+        });
+    </script>
+</body>
+
+</html>
