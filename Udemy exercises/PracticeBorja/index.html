@@ -26,7 +26,7 @@
 
         //Sending a petition with jax and appending that to a element in index.html 
         $(document).ready(function () {
-            $('#div').on('mouseover', function (event) {
+            $('#div').on('mouseenter', function (event) {
                 event.preventDefault();
                 event.stopPropagation();
                 console.log('hola1');
@@ -40,7 +40,7 @@
                     console.log('ERROOOOOOR');
                 });
             });
-            $('#div').on('mouseout', function (event) {
+            $('#div').on('mouseleave', function (event) {
                 console.log('funct2');
 
                 $('#div').html(" ");
