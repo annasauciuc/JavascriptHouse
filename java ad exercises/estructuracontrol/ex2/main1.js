@@ -17,6 +17,7 @@
 
 // var userName = id.toUpperCase() + "#" + lastName.toUpperCase();
 // console.log(userName);
+
 // $("button").on("click", function() {
 //   $("p").html("Hello");
 //   console.log("hola");
@@ -71,3 +72,75 @@
 //   counter++;
 //   console.log(movie);
 // });
+
+//recorrer el array mediante un bucle que calcule la media de los números (la suma de los números dividido por cuántos hay, es decir, 5)
+// var numbers = [4, 2, 7, 8, 6];
+// var counter = 0;
+// for (var i = 0; i < numbers.length; i++) {
+//   counter += numbers[i];
+//   console.log(counter);
+// }
+// counter = Math.floor(counter / 5);
+// console.log("counter2", counter);
+// numbers.push(5);
+// console.log("numbers", numbers);
+// var counter = 0;
+// for (var i = 0; i < numbers.length; i++) {
+//   counter += numbers[i];
+//   console.log(counter);
+// }
+// counter = Math.floor(counter / 6);
+// console.log("counter2", counter);
+
+//Esta función toma como parámetro un array numbers, calula la media del array (de cualquier longitud) y devuelve la media.
+// var counter = 0;
+// function average(numbers) {
+//   for (var i = 0; i < numbers.length; i++) {
+//     counter += numbers[i];
+//     console.log(counter);
+//   }
+
+//   return counter / numbers.length;
+// }
+// var media = average([1, 2, 3, 4, 5]);
+// console.log("media", media);
+
+var contacts = [
+  {
+    name: "Raquel",
+    age: "31",
+    profession: "designer"
+  },
+  {
+    name: "Pedro",
+    age: "34",
+    profession: "newspaper"
+  },
+  {
+    name: "Laura",
+    age: "37",
+    profession: "chef"
+  },
+  {
+    name: "Maria",
+    age: "31",
+    profession: "retired"
+  },
+  {
+    name: "Laur",
+    age: "67",
+    profession: "waitress"
+  }
+];
+function countAdalabers(adalabers) {
+  return adalabers.length;
+}
+console.log(countAdalabers(contacts));
+function averageAge(adalabers) {
+  var counter = 0;
+  for (var i = 0; i < adalabers.length; i++) {
+    counter += adalabers[i].age;
+  }
+  return counter / adalabers.length;
+}
+console.log(averageAge(contacts));
