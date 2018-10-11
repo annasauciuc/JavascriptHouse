@@ -22,3 +22,5 @@ if (edadPerro == 1) {
   edadHumana = 15 + 9 + 5 * (edadPerro - 2);
   console.log("Edad:" + edadHumana);
 }
+
+//Crear una página HTML con un párrafo en el que ponga Hola y un botón. Usando JavaScript, cambiar ese texto por "Hello" cuando se pulse el botón.
