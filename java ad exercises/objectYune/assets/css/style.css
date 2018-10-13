@@ -1,0 +1,14 @@
+.created-cars {
+    background-color: green;
+    text-align: center;
+}
+
+.main {
+    background-color: #082e15;
+    margin: 2%;
+    padding: 0 0 1%;
+    width: 35%;
+    color: white;
+    display: inline-flex;
+    flex-direction: column;
+}
