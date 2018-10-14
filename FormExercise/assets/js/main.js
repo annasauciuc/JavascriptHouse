@@ -1,4 +1,19 @@
+/*
+ * Practica
+ *
+ * # Objeto Usuario
+ *
+ * ## Propiedades:
+ *   @param nombre
+ *   @param edad
+ *   @param email
+ *   @param timezone (Notación ISO Timezone continent/city)
+ *   @param rol: admin, editor, user
+ *   @param timestamp last connection
+*/
+
 //Object
+
 var user1 = {
   firstName: "Ana",
   lastName: "Sauciuc",
@@ -8,19 +23,23 @@ var user1 = {
   hijos: [
     {
       name: "Darius",
-      age: "9"
+      age: "9",
+      sex: "male"
     },
     {
       name: "Davide",
-      age: "5"
+      age: "5",
+      sex: "male"
     },
     {
       name: "Khalesy",
-      age: "1"
+      age: "1",
+      sex: "female"
     },
     {
       name: "Lorro",
-      age: "30"
+      age: "30",
+      sex: "male"
     }
   ]
 };
@@ -52,6 +71,7 @@ function loadInfo(event) {
     $("#firstName" + numeroHijos).val(user1.hijos[i].name);
     console.log("name", user1.hijos.name);
     $("#age" + numeroHijos).val(user1.hijos[i].age);
+    $("#sex" + numeroHijos).val(user1.hijos[i].sex);
   }
 }
 
@@ -86,7 +106,7 @@ function addHijos(event) {
   divRow.id = "divHijo" + numeroHijos;
   divRow.appendChild(divColHijo);
   var divCol = document.createElement("div");
-  divCol.className = "col-md-6 mb-3";
+  divCol.className = "col-md-3 mb-3";
   var label = document.createElement("label");
   // relacionating the label with the input
   label.setAttribute("for", "firstName" + numeroHijos);
@@ -112,7 +132,7 @@ function addHijos(event) {
   divRow.appendChild(divCol);
   divRow.classList.add("row");
   var divCol2 = document.createElement("div");
-  divCol2.className = "col-md-6 mb-3";
+  divCol2.className = "col-md-3 mb-3";
   var label2 = document.createElement("label");
   label.setAttribute("for", "age" + numeroHijos);
   label2.textContent = "Age";
@@ -123,6 +143,32 @@ function addHijos(event) {
   divCol2.appendChild(label2);
   divCol2.appendChild(input2);
   divRow.appendChild(divCol2);
+
+  divRow.classList.add("row");
+  var divCol3 = document.createElement("div");
+  divCol3.className = "col-md-3 mb-3";
+  var label3 = document.createElement("label");
+  label.setAttribute("for", "sex" + numeroHijos);
+  label3.textContent = "Sex";
+  var input3 = document.createElement("select");
+  console.log("slected", input3);
+  //input3.setAttribute("type", "text");
+  input3.classList.add("custom-select");
+  input3.id = "sex" + numeroHijos;
+  var optionselected = document.createElement("option");
+  optionselected.textContent = "Choose";
+  optionselected.setAttribute("select", "selected");
+  input3.appendChild(optionselected);
+  var option1 = document.createElement("option");
+  option1.textContent = "Male";
+  input3.appendChild(option1);
+  var option2 = document.createElement("option");
+  option2.textContent = "Female";
+  input3.appendChild(option2);
+
+  //input3.appendChild(label3);
+  divCol3.appendChild(input3);
+  divRow.appendChild(divCol3);
   document.getElementById("formadd").appendChild(divRow);
   console.log("divRaw", divRow);
 }
@@ -246,6 +292,7 @@ function showInfo(event) {
   for (i = 0; i < divPadre.length; i++) {
     // sellecting all inputs of div padre
     var inputsDiv = divPadre[i].querySelectorAll("input");
+    var selectsDiv = divPadre[i].querySelectorAll("select");
     var tr = document.createElement("tr");
     // first td
     var td = document.createElement("td");
@@ -257,11 +304,17 @@ function showInfo(event) {
     // Putting in the second td the second children of div padre ,the age input being at position [1]//age
     td.innerHTML = inputsDiv[1].value;
     tr.appendChild(td);
+
+    td = document.createElement("td");
+    // Putting in the second td the second children of div padre ,the age input being at position [1]//age
+    td.innerHTML = selectsDiv[0].value;
+    tr.appendChild(td);
+
     tbody.appendChild(tr);
   }
 }
-var saveArray = [];
-console.log("saveArray2", saveArray);
+var usersSaved = [];
+console.log("usersSaved2", usersSaved);
 var allInputsSel = document.querySelectorAll("input");
 
 /***************************************************************************************
@@ -270,6 +323,14 @@ var allInputsSel = document.querySelectorAll("input");
 function saveInfoInputs(event) {
   event.preventDefault();
   event.stopPropagation();
+
+  var user1 = new User(
+    $("#firstName").val(),
+    $("#lastName").val(),
+    $("#username").val(),
+    $("#email").val(),
+    $("#address").val()
+  );
   //empty array where the hijos info will be pushed
   var hijos = [];
   var divHijos = document.getElementById("formadd");
@@ -277,20 +338,31 @@ function saveInfoInputs(event) {
   // selecting the values of hijos inputs
   for (i = 0; i < divPadre.length; i++) {
     var inputsDiv = divPadre[i].querySelectorAll("input");
+    var selectsDiv = divPadre[i].querySelectorAll("select");
+    console.log("SEX: selectsDiv[0].value", selectsDiv[0]);
     //From the kids inputs taking the first input value-name,and the second input value/age
-    var hijo = { name: inputsDiv[0].value, age: inputsDiv[1].value };
+    // var hijo = { name: inputsDiv[0].value, age: inputsDiv[1].value };
+    var kid = new Kid(
+      inputsDiv[0].value,
+      inputsDiv[1].value,
+      selectsDiv[0].value
+    );
+    console.log("kid", selectsDiv[0]);
+
     console.log("name: inputsDiv[0].value", inputsDiv[0].value);
-    hijos.push(hijo);
+    // hijos.push(hijo);
+    user1.addKid(kid);
   }
-  var user = {
-    firstName: $("#firstName").val(),
-    lastName: $("#lastName").val(),
-    username: $("#username").val(),
-    email: $("#email").val(),
-    address: $("#address").val(),
-    hijos: hijos
-  };
-  saveArray.push(user);
+  // var user = {
+  //   firstName: $("#firstName").val(),
+  //   lastName: $("#lastName").val(),
+  //   username: $("#username").val(),
+  //   email: $("#email").val(),
+  //   address: $("#address").val(),
+  //   hijos: hijos
+  // };
+  console.log("show user1 from object", user1);
+  usersSaved.push(user1);
   listUsers(event);
 }
 
@@ -304,37 +376,30 @@ function listUsers(event) {
   var table = document.getElementById("tbListUser");
   table.innerHTML = " ";
   // returning the oldest child
-  for (i = 0; i < saveArray.length; i++) {
-    var oldestChild = saveArray[i].hijos.reduce(function(oldest, child) {
-      return (parseInt(oldest.age) || 0) > parseInt(child.age) ? oldest : child;
-    }, {});
-    //returning the youngest child
-    var youngestChild = saveArray[i].hijos.reduce(function(young, child) {
-      return (parseInt(young.age) || 0) &&
-        parseInt(young.age) > 0 < parseInt(child.age)
-        ? young
-        : child;
-    }, {});
+  for (i = 0; i < usersSaved.length; i++) {
+    var userSaved = usersSaved[i];
+    var oldestChild = userSaved.oldestKid();
+    var youngestChild = userSaved.youngestKid();
     // creating the tables rows with the table data inside,having the value of the inputs of the form
     var trow = document.createElement("tr");
     var td = document.createElement("td");
-    td.innerHTML = saveArray[i].firstName;
+    td.innerHTML = userSaved.firstName;
     trow.appendChild(td);
     td = document.createElement("td");
-    td.innerHTML = saveArray[i].lastName;
+    td.innerHTML = userSaved.lastName;
     trow.appendChild(td);
     td = document.createElement("td");
-    td.innerHTML = saveArray[i].username;
+    td.innerHTML = userSaved.username;
     trow.appendChild(td);
     td = document.createElement("td");
-    td.innerHTML = saveArray[i].email;
+    td.innerHTML = userSaved.email;
     trow.appendChild(td);
     td = document.createElement("td");
-    td.innerHTML = saveArray[i].address;
+    td.innerHTML = userSaved.address;
     trow.appendChild(td);
     td = document.createElement("td");
     //the numbers of hijos
-    td.innerHTML = saveArray[i].hijos.length;
+    td.innerHTML = userSaved.numberOfKids();
     trow.appendChild(td);
     td = document.createElement("td");
     td.innerHTML = oldestChild.name + " - " + oldestChild.age + " years old";
@@ -343,11 +408,14 @@ function listUsers(event) {
     td.innerHTML =
       youngestChild.name + " - " + youngestChild.age + " years old";
     trow.appendChild(td);
+    td = document.createElement("td");
+    td.innerHTML = userSaved.completeName();
+    trow.appendChild(td);
     table.appendChild(trow);
   }
 
   // when cliking directly to see the list of user willa apper a message with no users in the list
-  if (saveArray.length == 0) {
+  if (usersSaved.length == 0) {
     var table = document.getElementById("tbListUser");
     var trow = document.createElement("tr");
     var td = document.createElement("td");
