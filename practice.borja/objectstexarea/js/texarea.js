@@ -18,9 +18,6 @@ function CreaText(text) {
   console.log("text", text);
 
   this.show = function() {
-    // var algo = this.value.split("*");
-    // console.log("algo", algo);
-    // return algo;
     for (i = 0; i < this.type.length; i++) {
       var splits = this.value.split(this.type[i]);
       console.log("splits", splits);
@@ -35,28 +32,9 @@ function CreaText(text) {
     return JSON.stringify(result);
   };
 
-  this.lenght = function() {
-    return this.text.length;
+  this.long = function() {
+    console.log("this.text.length", this.value);
+    return parseInt(this.value.length);
   };
   this.order = function() {};
 }
-
-// CreaText.prototype.toString = function creaTextToString() { };
-// var result = [];
-// for (var i = 0; i < names.length; i++) {
-//   for (var j = 0; j < things.length; j++) {
-//     for (var k = 0; k < actiones.length; k++) {
-//       result.push({
-//         name: names[i],
-//         action: actiones[k],
-//         thing: things[j],
-//         combine: function() {
-//           return this.name + " is " + this.action + " " + this.thing;
-//         }
-//       });
-//     }
-//   }
-// }
-// console.log(result);
-// return result;
-// }
