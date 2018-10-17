@@ -4,37 +4,46 @@ $("button").on("click", function(event) {
 
   $("#jumbotron-id").html(print(text));
 });
+function ResultObject() {
+  this.value = "";
+  this.type = "";
+  this.order = "";
+  this.length = "";
 
-function ResultObject(value, type, order, length) {
-  this.value = value;
-  this.type = type;
-  this.order = order;
-  this.length = length;
+  this.addValue = function(value) {
+    this.value = value;
+    this.length = value.length;
+  };
+  this.addType = function(type) {
+    this.type = type;
+  };
+  this.addOrder = function(order) {
+    this.order = order;
+  };
 }
-
 function print(text) {
   var result = [];
   var patternPalabras = /[\w+]/; //patron palabras
-  var paternPuntuation = (/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+  var paternPuntuation = /[.,\/#!$%\^&\*;:{}=\-_`~()]/g;
+
   var words = text.split(/([_\W])/); // array de strings de textarea
+  words = words.filter(word => word != "");
   console.log("words", words);
   for (var i = 0; i < words.length; i++) {
     var value = words[i];
     // var res = patternPalabras.test(splits[i]); // si  el elemento de array de strings es true o false string,
     // var resp = paternPuntuation.test(splits[i]); //si el elemento que esta mirando es de tipo punctuatuion
-
+    var objResult = new ResultObject();
+    objResult.addValue(value);
+    objResult.addOrder(i);
     if (patternPalabras.test(value)) {
-      var objResult = new ResultObject(value, "word", i, value.length);
-      result.push(objResult);
-      //if is true  el elemeto que estas mirando
-      //console.log("is a word");
+      objResult.addType("word");
     } else if (value === " ") {
-      var objResult = new ResultObject(value, "whitespace", i, value.length);
-      result.push(objResult);
-    } else {
-      var objResult = new ResultObject(value, "punctuacion", i, value.length);
-      result.push(objResult);
+      objResult.addType("whitespace");
+    } else if (paternPuntuation.test(value)) {
+      objResult.addType("punctuacion");
     }
+    result.push(objResult);
   }
 
   return JSON.stringify(result);
