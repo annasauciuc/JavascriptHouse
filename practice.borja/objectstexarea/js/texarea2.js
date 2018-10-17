@@ -27,9 +27,10 @@ function print(text) {
   var paternPuntuation = /[.,\/#!$%\^&\*;:{}=\-_`~()]/g;
 
   var words = text.split(/([_\W])/); // array de strings de textarea
-  words = words.filter(word => word != "");
+  words = words.filter(word => word != ""); // is filtring the elements that don`t have a an empty string
   console.log("words", words);
   for (var i = 0; i < words.length; i++) {
+    // the loop for will execute this code for every element inside words array
     var value = words[i];
     // var res = patternPalabras.test(splits[i]); // si  el elemento de array de strings es true o false string,
     // var resp = paternPuntuation.test(splits[i]); //si el elemento que esta mirando es de tipo punctuatuion
