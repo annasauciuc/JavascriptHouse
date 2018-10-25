@@ -1,7 +1,6 @@
 $("button").on("click", function(event) {
     var text = $("#texareaobject").val();
     console.log("text", text);
-
     $("#jumbotron-id").html(print(text));
 });
 
