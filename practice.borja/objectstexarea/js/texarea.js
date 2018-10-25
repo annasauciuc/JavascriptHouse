@@ -1,7 +1,6 @@
 $("button").on("click", function(event) {
     var text = $("#texareaobject").val();
     console.log("text", text);
-
     $("#jumbotron-id").html(print(text));
 });
 
@@ -18,6 +17,7 @@ function print(text) {
     var patternPalabras = /[\w+]/; //patron palabras
     var paternPuntuation = (/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
     var words = text.split(/([_\W])/); // array de strings de textarea
+
     console.log("words", words);
     for (var i = 0; i < words.length; i++) {
         var value = words[i];
@@ -39,4 +39,4 @@ function print(text) {
     }
 
     return JSON.stringify(result);
-} // word , white
+}

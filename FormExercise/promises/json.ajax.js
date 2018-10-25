@@ -10,14 +10,11 @@ btn.addEventListener("click", function() {
     ourRequest.onload = function() {
         var ourData = JSON.parse(ourRequest.responseText);
         renderHtml(ourData);
-
-
     };
     ourRequest.send();
     pageCounter++;
     if (pageCounter > 3) {
         btn.classList.add("hide-me");
-
     }
 });
 
@@ -29,9 +26,7 @@ function renderHtml(data) {
         htmlString += " <p> " + data[i].name + "  is a  " + data[i].species + " that likes to eat ";
         for (let ii = 0; ii < data[i].foods.likes.length; ii++) {
             if (ii == 0) {
-
                 htmlString += data[i].foods.likes[ii];
-
             } else {
                 htmlString += " and " + data[i].foods.likes[ii];
             }
@@ -39,9 +34,7 @@ function renderHtml(data) {
         htmlString += " and dislikes ";
         for (let ii = 0; ii < data[i].foods.dislikes.length; ii++) {
             if (ii == 0) {
-
                 htmlString += data[i].foods.dislikes[ii];
-
             } else {
                 htmlString += " and " + data[i].foods.dislikes[ii];
             }
@@ -49,5 +42,4 @@ function renderHtml(data) {
         }
         animalContainer.insertAdjacentHTML('beforeend', htmlString);
     }
-
 }
