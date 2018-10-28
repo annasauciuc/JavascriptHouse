@@ -9,12 +9,6 @@ function Person(id, firstname, lastname, age, nacionality, address, email, phone
     this.email = email;
     this.phone = phone;
     this.rols = [];
-
-
-
-
-
-
     this.addRol = function(rol) {
         this.rols.push(rol)
     }

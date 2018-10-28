@@ -18,5 +18,7 @@ function Activity(activityID, activityName, teachers, days, hours, price, maxStu
     this.maxStudentsAllow = maxStudentsAllow;
     this.students = [];
 
-
+    this.addStudent = function(student) {
+        students.push(student)
+    }
 }
