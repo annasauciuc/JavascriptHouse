@@ -12,4 +12,6 @@ function Activity(scoreID, studentID, activityID, value, activityName) {
     this.activityID = activityID;
     this.value = value;
     this.activityName = activityName;
+
+
 }

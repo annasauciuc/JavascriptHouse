@@ -22,6 +22,7 @@ function College(collegeID, collegeName, students, activities, address, phoneNum
     this.collegeName = collegeName;
     this.students = [];
     this.activities = [];
+    this.teachers = [];
     this.address = address;
     this.phoneNumber = phoneNumber;
     this.director = director;
@@ -48,7 +49,7 @@ function College(collegeID, collegeName, students, activities, address, phoneNum
     this.addScore = function(score) {
         this.scores.push(score);
     }
-
-
-
+    this.addTeachers = function(teacher) {
+        this.teachers.push(teacher);
+    }
 }

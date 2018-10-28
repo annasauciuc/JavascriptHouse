@@ -1,5 +1,6 @@
-function Person(id, firstname, lastname, age, nacionality, address, email, phone) {
+function Person(id, firstname, lastname, age, nacionality, address, email, phone, country) {
     this.id = id;
+    this.country = country;
     this.firstname = firstname;
     this.lastname = lastname;
     this.age = age;
@@ -7,5 +8,15 @@ function Person(id, firstname, lastname, age, nacionality, address, email, phone
     this.address = address;
     this.email = email;
     this.phone = phone;
-    this.rol = [];
+    this.rols = [];
+
+
+
+
+
+
+    this.addRol = function(rol) {
+        this.rols.push(rol)
+    }
+
 }

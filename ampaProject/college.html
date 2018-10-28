@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Checkout example for Bootstrap</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="assets/css/formStudents.css">
+</head>
+
+<body class="bg-light">
+    <div class="container">
+        <div class="py-5 text-center">
+            <h2>Ampa form </h2>
+        </div>
+        <main>
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active " id="nav-home-tab" data-toggle="tab" href="#tab-home" role="tab" aria-controls="nav-home" aria-selected="true">Students</a>
+                    <a class="nav-item nav-link disabled" id="nav-profile-tab" data-toggle="tab" href="#tab-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Activities</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="mainTabContent">
+                <div class="tab-pane  fade show active" id="tab-home" role="tabpanel" aria-labelledby="tab-home-tab">
+                    <div class=" d-flex justify-content-end"> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Students</button></div>
+
+                    <!-- Modal -->
+                    <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">Students</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="user-form" method="POST" class="needs-validation col-md-12">
+                                        <h5>Courses</h5>
+                                        <div class="form-group row has-success">
+                                            <label for="studentcourse" class="col-sm-2 col-form-label">Student course</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroup-sizing"><i class="fas asweome fa-user-tie"></i></span>
+                                                    <input type="text" name="studentcourse" class="form-control " minlength="3" maxlength="25" pattern="[a-zA-Z\s  ñ]+" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h5>Profile Informations</h5>
+                                        <div class="form-group row has-success">
+                                            <label for="idstudent" class="col-sm-2 col-form-label">Id</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroup-sizing"><i class="fas asweome fa-user-tie"></i></span>
+                                                    <input type="text" name="idstudent" class="form-control " minlength="3" maxlength="25" pattern="[a-zA-Z\s  ñ]+" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row has-success">
+                                            <label for="firstname" class="col-sm-2 col-form-label">First Name</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroup-sizing"><i class="fas asweome fa-user-tie"></i></span>
+                                                    <input type="text" name="firstname" class="form-control " minlength="3" maxlength="25" pattern="[a-zA-Z\s  ñ]+" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row has-success">
+                                            <label for="lastname" class="col-sm-2 col-form-label">Last Name</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputdefault"><i class="fas asweome fa-user-tie"></i></span>
+                                                    <input lang="es-ES" type="text" name="lastname" class="form-control" minlength="3" maxlength="25" pattern="[A-Za-z ñ]+" title="Last name must have 3-15 characters long" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row has-success">
+                                            <label for="nacionality" class="col-sm-2 col-form-label">Nacionality</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputfault"><i class="fas asweome fa-users"></i></span>
+                                                    <input lang="es-ES" name="nacionality" pattern="[a-zA-Z0-9\s ñ]+" minlength="3" maxlength="25" type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row has-success">
+                                            <label for="email" class="col-sm-2 col-form-label">Email</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="in-sizing-default"><i class="fas asweome fa-at"></i></span>
+                                                    <input lang="es-ES" type="email" name="email" class="form-control form-control-success" minlength="3" maxlength="25" placeholder="name@example.com">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row has-success">
+                                            <label for="telephone" class="col-sm-2 col-form-label">Telephone</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputizing-default"><i class="fas asweome fa-phone-square"></i></span>
+                                                    <input name="telephone" type="tel" class="form-control" minlength="3" maxlength="25">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row has-success">
+                                            <label for="address" class="col-sm-2 col-form-label">Address</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas asweome asweome-address fa-map-marker-alt"></i></span>
+                                                    <input lang="es-ES" name="adress" type="text" class="form-control" minlength="3" maxlength="25" placeholder="1234 Main St">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row has-success">
+                                            <label for="country" class="col-sm-2 col-form-label">Country</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroupdefault"><i class="fas asweome fa-globe-americas"></i></span>
+                                                    <input lang="es-ES" name="country" class="custom-select d-block w-100" minlength="3" maxlength="25" pattern="[a-zA-Z\s ñ]+" type="text" placeholder="residence country">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row has-success">
+                                            <label for="city" class="col-sm-2 col-form-label">City</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputefault"><i class="fas asweome fa-city"></i></span>
+                                                    <input lang="es-ES" name="city" id="city" pattern="[a-zA-Z\s ñ]+" class="custom-select d-block w-100" minlength="3" maxlength="25" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row has-success" id="age-">
+                                            <label for="age" class="col-sm-2 col-form-label">Age</label>
+                                            <div class="col-sm-6">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="Group-s"><i class="fas asweome fa-user-tie"></i></span>
+                                                    <input name="age" minlength="1" maxlength="3" id="age" class="form-control" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row has-success">
+                                            <label class="col-sm-2 control-label gender">Gender</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inpGroup-sizing-default"> <i class="fas asweome fa-venus-mars fa "></i></span>
+                                                    <div class="custom-control gen custom-radio">
+                                                        <input value="male" id="male" name="gender" type="radio" class="custom-control-input">
+                                                        <label class="custom-control-label" for="male">Male</label>
+                                                    </div>
+                                                    <div class="custom-control gen custom-radio">
+                                                        <input value="female" id="female" name="gender" type="radio" class="custom-control-input">
+                                                        <label class="custom-control-label" for="female">Female</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="form-group row has-success" id="contacts">
+                                            <div class="col-sm-6">
+                                                <h5>Contacts</h5>
+                                                <div class="input-group-prepend">
+                                                    <button id="create-contact" class="btn checkout  btn-custom btn-lg btn-block">Add contact</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" id="saveStudentForm" onclick="saveStudent()" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-lg " onclick="switchVisible('tab-profile',event)" type="submit">Next</button>
+                </div>
+
+                <div class="tab-pane  fade" id="tab-profile" role="tabpanel" aria-labelledby="tab-profile-tab">
+                    <!-- Button trigger modal -->
+                    <div class=" d-flex justify-content-end"> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">Activities</button></div>
+                    <!-- Modal -->
+                    <div class="modal fade bd-example-modal-lg" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="formactivities" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="formactivities">Activities</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="user-form" method="POST" class="needs-validation col-md-12">
+                                        <div class="form-group row has-success">
+                                            <label for="idstudent1" class="col-sm-2 col-form-label">Id</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroup-sizing"><i class="fas asweome fa-user-tie"></i></span>
+                                                    <input type="text" name="idstudent1" class="form-control " minlength="3" maxlength="25" pattern="[a-zA-Z\s  ñ]+" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row has-success">
+                                            <label for="activityname" class="col-sm-2 col-form-label">Activity Name</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroup-sizing"><i class="fas asweome fa-user-tie"></i></span>
+                                                    <input type="text" name="activityname" class="form-control " minlength="3" maxlength="25" pattern="[a-zA-Z\s  ñ]+" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row has-success">
+                                            <label for="teachersofactivity" class="col-sm-2 col-form-label">Teachers</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputdefault"><i class="fas asweome fa-user-tie"></i></span>
+                                                    <input lang="es-ES" type="text" name="teachersofactivity" class="form-control" minlength="3" maxlength="25" pattern="[A-Za-z ñ]+" title="Last name must have 3-15 characters long" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row has-success">
+                                            <label for="daysofactivity" class="col-sm-2 col-form-label">Days</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputfault"><i class="fas asweome fa-users"></i></span>
+                                                    <input lang="es-ES" name="daysofactivity" pattern="[a-zA-Z0-9\s ñ]+" minlength="3" maxlength="25" type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row has-success">
+                                            <label for="hoursofthisactivity" class="col-sm-2 col-form-label">Hours</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="in-sizing-default"><i class="fas asweome fa-at"></i></span>
+                                                    <input lang="es-ES" type="email" name="hoursofthisactivity" class="form-control form-control-success" minlength="3" maxlength="25" placeholder="name@example.com">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row has-success">
+                                            <label for="priceofthisactivity" class="col-sm-2 col-form-label">Price</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputizing-default"><i class="fas asweome fa-phone-square"></i></span>
+                                                    <input name="priceofthisactivity" type="tel" class="form-control" minlength="3" maxlength="25">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row has-success">
+                                            <label for="maxstudents" class="col-sm-2 col-form-label">Max Students Allowed</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas asweome asweome-address fa-map-marker-alt"></i></span>
+                                                    <input lang="es-ES" name="maxstudents" type="text" class="form-control" minlength="3" maxlength="25" placeholder="1234 Main St">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row has-success">
+                                            <label for="studentsofthisactivity" class="col-sm-2 col-form-label">Students </label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroupdefault"><i class="fas asweome fa-globe-americas"></i></span>
+                                                    <input lang="es-ES" name="studentsofthisactivity" class="custom-select d-block w-100" minlength="3" maxlength="25" pattern="[a-zA-Z\s ñ]+" type="text" placeholder="residence country">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <hr>
+
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" id="saveActivitiesForm" onclick="saveActivity()" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="users-table" class="table-responsive table-wrapper-scroll-y mt-1">
+                        <div class="row">
+                            <div class="col-md-12 order-md-1">
+                                <h4 class="mb-3">Students</h4>
+                                <table class="table table-striped table-dark">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">First Name</th>
+                                            <th scope="col">Last Name</th>
+                                            <th scope="col">Username</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Address</th>
+                                            <th scope="col">Telephone</th>
+                                            <th scope="col">Age</th>
+                                            <th scope="col">Gender</th>
+                                            <th scope="col">Nacionality</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="studentsTable">
+                                    </tbody>
+                                </table>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button class="btn btn-primary btn-lg " onclick="switchVisible('tab-home',event)" type="submit">Back</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
+    <script>
+        window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js "><\/script>')
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js " integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js " integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy " crossorigin="anonymous "></script>
+    <script src="assets/js/Person.js"></script>
+    <script src="assets/js/Activity.js"></script>
+    <script src="assets/js/College.js"></script>
+    <script src="assets/js/indexcolleges.js"></script>
+
+    <script src="assets/js/Score.js"></script>
+    <script src="assets/js/Student.js"></script>
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        // (function() {
+        //     'use strict';
+        //     window.addEventListener('load', function() {
+        //         // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        //         var forms = document.getElementsByClassName('needs-validation');
+        //         // Loop over them and prevent submission
+        //         var validation = Array.prototype.filter.call(forms, function(form) {
+        //             form.addEventListener('submit', function(event) {
+        //                 if (form.checkValidity() === false) {
+        //                     event.preventDefault();
+        //                     event.stopPropagation();
+        //                 }
+        //                 form.classList.add('was-validated');
+        //             }, false);
+        //         });
+        //     }, false);
+        // })();
+    </script>
+</body>
+
+</html>

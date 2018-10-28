@@ -19,5 +19,4 @@ function Activity(activityID, activityName, teachers, days, hours, price, maxStu
     this.students = [];
 
 
-
 }
