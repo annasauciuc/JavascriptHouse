@@ -22,15 +22,10 @@
 // }
 // let sal = sumSalaries(100, 200, 300);
 // console.log('sal :', sal);
-function testMe() {
-    while (true) {
-
-        break;
-    }
-
-    //Still print 2 even though x is declared inside while loop
+function abbrevName(name) {
+    var nam = name.split('+');
+    return nam[0].charAt(0).toUpperCase() + '.' + nam[1].charAt(0).toUpperCase();
 }
-var x = 2;
-var x = 3;
-console.log(x);
-testMe();
+
+
+console.log('abbrevName(anamaria) :', abbrevName("ana+maria"));
