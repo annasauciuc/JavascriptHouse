@@ -153,8 +153,9 @@ class ConfigForm {
     renderForm() {
         let formRender = form.render();
         this.inputs.forEach(input => {
-            formRender.append(input.render());
+            formRender.apend(input.render());
         });
+        return formRender;
     }
     setForm(form) {
         this.form = form;
@@ -172,7 +173,9 @@ input1.setValue("adios");
 console.log("input value", input1.getValue());
 let input2 = new Input(type = "radio");
 console.log('input1.render() :', input1.render());
-
+let form = new Form();
 let configForm = new ConfigForm();
 configForm.addInput(input1);
+configForm.setForm(form);
 console.log('configForm :', configForm);
+console.log("blabla", configForm.renderForm());
