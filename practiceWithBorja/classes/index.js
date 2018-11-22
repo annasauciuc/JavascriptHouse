@@ -129,17 +129,17 @@ class Form {
 
 class Input {
     constructor(type, name, id, className, value) {
-        this.type = type;
-        this.name = name;
-        this.id = id;
-        this.className = className;
-        this.value = value;
+        this._type = type;
+        this._name = name;
+        this._id = id;
+        this._className = className;
+        this._value = value;
     }
     render() {
         return `<input type="${this.type} name="${this.name} id="${this.id}" class="${this.className}" value="${this.value}"/>`
     }
-    getValue() {
-        return this.value;
+    get value() {
+        return this._value;
     }
     setValue(value) {
         this.value = value;
@@ -168,7 +168,7 @@ class ConfigForm {
 
 let input1 = new Input();
 input1.setValue("hola");
-console.log("input value", input1.getValue());
+console.log("input value", input1.value);
 input1.setValue("adios");
 console.log("input value", input1.getValue());
 let input2 = new Input(type = "radio");
