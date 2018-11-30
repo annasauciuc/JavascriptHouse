@@ -144,6 +144,12 @@ class Input {
     setValue(value) {
         this.value = value;
     }
+    isRadio() {
+        return this._type == "radio"
+    }
+    isCheckbox() {
+        return this._type == "checkbox"
+    }
 }
 class ConfigForm {
     constructor() {
