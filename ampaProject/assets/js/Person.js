@@ -12,6 +12,7 @@ class Person {
         this.rols = [];
 
     }
+
     addRol(rol) {
         this.rols.push(rol)
     }
